@@ -1,7 +1,9 @@
 .container {
     display: flex;
+    align-items: center;
+    justify-content: flex-end;
 
     height: 100vh;
 
-    background: #5965E0 url("/img/logo.svg") no-repeat left center;
+    background: #5965E0 url("/img/background-login-image.svg") no-repeat left center;
 }
