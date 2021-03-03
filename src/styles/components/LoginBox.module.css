@@ -16,6 +16,8 @@
 .loginBoxContainer .gitBox {
     display: flex;
     align-items: center;
+
+    margin-bottom: 1rem;
 }
 
 .loginBoxContainer .gitBox span{
