@@ -10,15 +10,15 @@ export function LoginBox() {
             <div>
                 <h1>Bem vindo</h1>
 
-                <div>
+                <div className={styles.gitBox}>
                     <img src="/icons/git.svg" />
-                    <span>Faça login com seu github para começar</span>
+                    <span>Faça login com seu Github <br /> para começar</span>
                 </div>
 
                 <div>
                     <input />
                     <button>
-                        <img src="/icons/login/button.svg" />
+                        <img src="/icons/login-button.svg" />
                     </button>
                 </div>
             </div>

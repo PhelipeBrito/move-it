@@ -1,0 +1,27 @@
+.loginBoxContainer {
+    margin-right: 15rem;
+}
+
+.loginBoxContainer header  img {
+    margin-bottom: 5rem;
+}
+
+.loginBoxContainer > div h1 {
+    font-size: 3rem;
+    color: var( --white);
+
+    margin-bottom: 2rem;
+}
+
+.loginBoxContainer .gitBox {
+    display: flex;
+    align-items: center;
+}
+
+.loginBoxContainer .gitBox span{
+    color: #B2B9FF;
+    font-size: 1.2rem;
+    line-height: 1.7rem;
+
+    margin-left: 1rem;
+}
