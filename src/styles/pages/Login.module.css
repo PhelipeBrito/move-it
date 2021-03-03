@@ -4,6 +4,7 @@
     justify-content: flex-end;
 
     height: 100vh;
+    min-height: 425px;
 
     background: #5965E0 url("/img/background-login-image.svg") no-repeat left center;
 }

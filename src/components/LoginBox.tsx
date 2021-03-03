@@ -15,8 +15,8 @@ export function LoginBox() {
                     <span>Faça login com seu Github <br /> para começar</span>
                 </div>
 
-                <div>
-                    <input />
+                <div className={styles.inputBox}>
+                    <input type="text" placeholder="Digite seu username" />
                     <button>
                         <img src="/icons/login-button.svg" />
                     </button>
