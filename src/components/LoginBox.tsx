@@ -22,10 +22,10 @@ export function LoginBox() {
                 <div className={styles.inputBox}>
                     <input type="text" placeholder="Digite seu username" />
                     <NextLink 
-                        onClick={() => router.push(`/home/defunkt`)}
+                        
                         href="/home/defunkt"
                     >
-                    <a>
+                    <a onClick={() => router.push(`/home/defunkt`)}>
                         <img src="/icons/login-button.svg" />
                     </a>
                     </NextLink>
