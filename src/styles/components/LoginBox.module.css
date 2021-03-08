@@ -50,10 +50,16 @@
     color: var(--text-blue)
 }
 
-.loginBoxContainer .inputBox button{
+.loginBoxContainer .inputBox a{
     width: 5.7rem;
     height: 4.7rem;
     border:0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
 
     background: #4953B8;
 }

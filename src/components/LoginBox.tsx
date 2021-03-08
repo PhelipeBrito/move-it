@@ -1,6 +1,10 @@
 import styles from '../styles/components/LoginBox.module.css'
+import NextLink from 'next/link'
+import { useRouter } from 'next/router'
 
 export function LoginBox() {
+    const router = useRouter();
+
     return(
         <div className={styles.loginBoxContainer}>
             <header>
@@ -17,9 +21,14 @@ export function LoginBox() {
 
                 <div className={styles.inputBox}>
                     <input type="text" placeholder="Digite seu username" />
-                    <button>
+                    <NextLink 
+                        onClick={() => router.push(`/home/defunkt`)}
+                        href="/home/defunkt"
+                    >
+                    <a>
                         <img src="/icons/login-button.svg" />
-                    </button>
+                    </a>
+                    </NextLink>
                 </div>
             </div>
         </div>
