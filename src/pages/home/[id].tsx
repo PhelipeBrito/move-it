@@ -7,22 +7,27 @@ import { ChallengeBox } from "../../components/ChallengeBox";
 import { CountdownProvider } from "../../contexts/CountdownContext";
 import { GetServerSideProps } from 'next';
 
-import { useRouter } from 'next/router'
-import styles from "../../styles/pages/Home.module.css"
-import Head from 'next/head'
+import styles from "../../styles/pages/Home.module.css";
+import Head from 'next/head';
+
+
+interface User{
+  name: string;
+  login: string;
+}
 
 interface HomeProps{
     level: number; 
     currentExperience: number;
     challengesCompleted: number;
+    user: User;
   }
 
 
 
 export default function Home(props) {
-  const router = useRouter();
-  const { name } = router.query;
-
+    console.log(props.user.login);
+    
     return(
         <ChallengesProvider
           level={props.level}
@@ -40,7 +45,10 @@ export default function Home(props) {
             <CountdownProvider>
               <section>
                 <div>
-                  <Profile />
+                  <Profile 
+                    userName={props.user.name}
+                    userLogin={props.user.login}
+                  />
                   <CompletedChallenges />
                   <Countdown />
                 </div>
@@ -58,7 +66,7 @@ export default function Home(props) {
 export const getServerSideProps: GetServerSideProps = async (context) => {
     const{level, currentExperience, challengesCompleted} = context.req.cookies;
 
-    const user = await fetch(`https://api.github.com/users/Phelipe`)
+    const user = await fetch(`https://api.github.com/users/PhelipeBrito`)
     .then((respostaDoServer) => {
         if(respostaDoServer.ok) {
             console.log(respostaDoServer);
@@ -76,7 +84,8 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     //console.log(user);
 
     return {
-      props: {user,
+      props: {
+            user,
             level: Number(level), 
             currentExperience: Number(currentExperience),
             challengesCompleted: Number(challengesCompleted)

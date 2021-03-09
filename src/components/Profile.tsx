@@ -2,15 +2,15 @@ import styles from "../styles/components/Profile.module.css"
 import { ChallengesContext } from'../contexts/ChallengesContext'
 import { useContext } from "react"
 
-export function Profile() {
+export function Profile({userName, userLogin}) {
     const { level } = useContext(ChallengesContext)
 
     return( 
         <div className={styles.profileContainer}>
-            <img src="https:///github.com/PhelipeBrito.png" alt="User"/>
+            <img src={`https:///github.com/${userLogin}.png`} alt="User"/>
 
             <div>
-                <strong>Phelipe de Brito</strong>
+                <strong>{userName}</strong>
                 <p>
                     <img src="/icons/level.svg" alt="level"/>
                     Level {level}
