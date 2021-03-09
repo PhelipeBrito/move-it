@@ -23,9 +23,9 @@ export function LoginBox() {
                     <input type="text" placeholder="Digite seu username" />
                     <NextLink 
                         
-                        href="/home/defunkt"
+                        href="/home/PhelipeBrito"
                     >
-                    <a onClick={() => router.push(`/home/defunkt`)}>
+                    <a onClick={() => router.push(`/home/PhelipeBrito`)}>
                         <img src="/icons/login-button.svg" />
                     </a>
                     </NextLink>
