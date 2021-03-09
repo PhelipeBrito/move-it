@@ -7,6 +7,7 @@ import { ChallengeBox } from "../../components/ChallengeBox";
 import { CountdownProvider } from "../../contexts/CountdownContext";
 import { GetServerSideProps } from 'next';
 
+import { useRouter } from 'next/router'
 import styles from "../../styles/pages/Home.module.css"
 import Head from 'next/head'
 
@@ -16,7 +17,12 @@ interface HomeProps{
     challengesCompleted: number;
   }
 
+
+
 export default function Home(props) {
+  const router = useRouter();
+  const { name } = router.query;
+
     return(
         <ChallengesProvider
           level={props.level}
@@ -52,7 +58,7 @@ export default function Home(props) {
 export const getServerSideProps: GetServerSideProps = async (context) => {
     const{level, currentExperience, challengesCompleted} = context.req.cookies;
 
-    const user = await fetch(`https://api.github.com/users/defunkt`)
+    const user = await fetch(`https://api.github.com/users/Phelipe`)
     .then((respostaDoServer) => {
         if(respostaDoServer.ok) {
             console.log(respostaDoServer);
