@@ -1,8 +1,11 @@
 import styles from '../styles/components/LoginBox.module.css'
 import NextLink from 'next/link'
 import { useRouter } from 'next/router'
+import { useState } from 'react';
 
 export function LoginBox() {
+    const [userName, setUserName] = useState('')
+
     const router = useRouter();
 
     return(
@@ -20,12 +23,17 @@ export function LoginBox() {
                 </div>
 
                 <div className={styles.inputBox}>
-                    <input type="text" placeholder="Digite seu username" />
-                    <NextLink 
-                        
-                        href="/home/PhelipeBrito"
-                    >
-                    <a onClick={() => router.push(`/home/PhelipeBrito`)}>
+                    <input 
+                        type="text" 
+                        onChange={(event) => {
+                            setUserName(event.target.value)
+                        }}
+                        placeholder="Digite seu username"
+                        value={userName} 
+                    />
+                    
+                    <NextLink href={`/home/${userName}`}> 
+                    <a onClick={() => router.push(`/home/${userName}`)}>
                         <img src="/icons/login-button.svg" />
                     </a>
                     </NextLink>
