@@ -2,6 +2,7 @@ import {createContext, useState, ReactNode, useEffect} from 'react';
 import Cookies from 'js-cookie';
 import challenges from '../../challenges.json';
 import { LevelUpModal } from '../components/LevelUpModal';
+import { Router, useRouter } from 'next/router';
 
 interface Challenge {
     type: 'body' | 'eye';
@@ -38,6 +39,8 @@ export function ChallengesProvider( {children, ...rest} : ChallengesProviderProp
 
     const [activeChallenge, setActiveChallenge] = useState(null);
     const [isLevelUpModalOpen, setIsLevelUpModalOpen] = useState(false)
+    const router = useRouter();
+    const { id } = router.query;
 
     const experienceToNextLevel = Math.pow((level + 1) * 4, 2)
 
@@ -48,7 +51,7 @@ export function ChallengesProvider( {children, ...rest} : ChallengesProviderProp
     useEffect(() => {
         Cookies.set('level', String(level));
         Cookies.set('currentExperience', String(currentExperience));
-        Cookies.set('challengesCompleted', String(challengesCompleted));
+        Cookies.set('challengesCompleted$', String(challengesCompleted));
         
     }, [level, currentExperience, challengesCompleted])
 

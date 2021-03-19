@@ -26,7 +26,6 @@ interface HomeProps{
 
 
 export default function Home(props) {
-    console.log(props.user.login);
     
     return(
         <ChallengesProvider
@@ -65,11 +64,11 @@ export default function Home(props) {
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
     const{level, currentExperience, challengesCompleted} = context.req.cookies;
+    const { id } = context.params
 
-    const user = await fetch(`https://api.github.com/users/PhelipeBrito`)
+    const user = await fetch(`https://api.github.com/users/${id}`)
     .then((respostaDoServer) => {
         if(respostaDoServer.ok) {
-            console.log(respostaDoServer);
             return respostaDoServer.json();
 
         }
@@ -81,7 +80,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
         console.log(err);
     })
 
-    //console.log(user);
+    console.log(id);
 
     return {
       props: {
